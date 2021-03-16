@@ -1,0 +1,21 @@
+---
+# Package Update.
+
+- name: Echo OS family on nodes.
+  hosts: all
+  remote_user: matjangkrik
+  tasks:
+
+    - name: Echo Redhat.
+      shell: echo "Redhat family"
+      when: ansible_facts['os_family'] == 'RedHat'
+
+    - name: Echo Debian.
+      shell: echo "Debian family"
+      when: ansible_facts['os_family'] == 'Debian'
+
+    - name: Echo Suse.
+      shell: echo "Suse family"
+      when: ansible_facts['os_family'] == 'Suse'
+    
+    

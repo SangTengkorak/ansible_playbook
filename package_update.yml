@@ -1,0 +1,14 @@
+---
+# Package Update.
+
+- name: Update installed packages on nodes.
+  hosts: all
+  remote_user: matjangkrik
+  tasks:
+
+    - name: Update installed package.
+      package: name=* state=latest
+
+    - name: Update package for debian.
+      apt: name=* state=latest
+      when: ansible_facts['os_family'] == 'Debian'
