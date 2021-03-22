@@ -1,0 +1,18 @@
+---
+# Replace line in file..
+
+- name: Replace a line in a file..
+  hosts: oracleos14
+  remote_user: matjangkrik
+  become: true
+  tasks:
+
+    - name: Replace line using lineinfile.
+      lineinfile:
+        path: /etc/motd
+        regexp: '^# Ansible lab'
+        line: Utility lab
+        backrefs: yes
+        owner: root
+        group: root
+        mode: '0644'
