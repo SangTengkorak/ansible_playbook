@@ -1,5 +1,5 @@
 ---
-# Replace line in file..
+# Replace line in file.
 
 - name: Replace a line in a file..
   hosts: oracleos14
@@ -10,9 +10,9 @@
     - name: Replace line using lineinfile.
       lineinfile:
         path: /etc/motd
-        regexp: '^# Ansible lab'
-        line: Utility lab
-        backrefs: yes
+        regexp: '^# Ansible lab'  #Content of line that want to replace.
+        line: Utility lab         #New line.
+        backrefs: yes             #If unwanted line is not found, file will be ignored.
         owner: root
         group: root
         mode: '0644'
