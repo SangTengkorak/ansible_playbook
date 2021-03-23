@@ -1,0 +1,26 @@
+# SangTengkorak
+# March 23 2021
+
+---
+- hosts: all
+  gather_facts: yes
+  become: yes
+  tasks:
+    
+    - name: install sysstat module yum.
+      yum: name=sysstat state=present
+      when: ansible_facts['os_family'] == 'Redhat'
+
+    - name: install sysstat module zypper.
+      zypper: name=sysstat state=present
+      when: ansible_facts['os_family'] == 'Suse'
+
+    - name: install sysstat module apt.
+      apt: name=sysstat state=present
+      when: ansible_facts['os_family'] == 'Debian'
+
+    - name: ensure sysstat enabled.
+      service: name=sysstat enabled=true
+
+    - name: run sysstat service. 
+      service: name=sysstat state=started
