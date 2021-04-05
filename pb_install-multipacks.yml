@@ -10,5 +10,6 @@
             - net-tools
             - neofetch
             - sysstat
+            - build-essential
           state:
             present
