@@ -1,0 +1,14 @@
+---
+  - name: Package Playbook
+    hosts: servers
+    become: yes
+    tasks:
+
+      - name: Install packages
+        apt:                  # Also work with yum
+          name:
+            - net-tools
+            - neofetch
+            - sysstat
+          state:
+            present
